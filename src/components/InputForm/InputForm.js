@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import styles from './InputForm.module.css';
+import PropTypes from 'prop-types';
 
+import s from './InputForm.module.scss';
 
 class InputForm extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired
+  }
+
   state = {
     name: '',
     number: ''
@@ -23,35 +28,35 @@ class InputForm extends Component {
     this.setState({ name: '', number: '' })
   }
 
-
   render() {
+    const { name, number } = this.state;
     return (
-      <form className={styles.form} onSubmit={this.handleSubmit}>
-        <label className={styles.label} htmlFor="name">
+      <form className={s.form} onSubmit={this.handleSubmit}>
+        <label className={s.label} htmlFor="name">
           Name
           </label>
         <input
           id="name"
           type="text"
           onChange={this.handleChange}
-          className={styles.input}
+          className={s.input}
           name="name"
-          value={this.state.name}
+          value={name}
           placeholder='Name'
         />
 
-        <label className={styles.label} htmlFor="number">
+        <label className={s.label} htmlFor="number">
           Number
           </label>
         <input
           id="number"
           type="text"
           onChange={this.handleChange}
-          className={styles.input}
-          name="number" value={this.state.number}
+          className={s.input}
+          name="number" value={number}
           placeholder='Phone number'
         />
-        <button type="submit" className={styles.btn}>Add contact</button>
+        <button type="submit" className={s.btn}>Add contact</button>
       </form>
     );
   }

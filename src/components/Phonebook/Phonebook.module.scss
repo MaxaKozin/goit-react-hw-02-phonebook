@@ -9,12 +9,12 @@
   justify-content: space-between;
   width: 450px;
   border-radius: 8px;
-}
 
-.item > span {
-  font-size: 18px;
-  font-style: italic;
-  color: #334;
+  & > span {
+    font-size: 18px;
+    font-style: italic;
+    color: #334;
+  }
 }
 
 .close {

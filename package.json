@@ -36,16 +36,16 @@
       "last 1 safari version"
     ]
   },
-  "description": "Homework-02/1",
+  "description": "Homework-02/2",
   "main": "index.js",
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaxaKozin/goit-react-hw-02-feedback.git"
+    "url": "git+https://github.com/MaxaKozin/goit-react-hw-02-phonebook.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MaxaKozin/goit-react-hw-02-feedback/issues"
+    "url": "https://github.com/MaxaKozin/goit-react-hw-02-phonebook/issues"
   }
 }

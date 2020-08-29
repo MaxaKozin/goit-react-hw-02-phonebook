@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+
 import InputForm from './components/InputForm/InputForm';
 import Filter from "./components/Filter/Filter";
 import Phonebook from './components/Phonebook/Phonebook';
@@ -34,21 +35,22 @@ class App extends Component {
   }
 
   deleteContact = contactId => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    this.setState(({ contacts }) => ({
+      contacts: contacts.filter(contact => contact.id !== contactId),
     }));
   };
 
   changeFilter = event => {
-    this.setState({ filter: event.currentTarget.value });
+    const { value } = event.currentTarget;
+    this.setState({ filter: value });
   };
 
   getFilteredContacts = () => {
     const { filter, contacts } = this.state;
     const lowerCaseFilter = filter.toLowerCase();
 
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(lowerCaseFilter),
+    return contacts.filter(({ name }) =>
+      name.toLowerCase().includes(lowerCaseFilter),
     );
   };
 
@@ -58,13 +60,14 @@ class App extends Component {
 
   render() {
     const filteredContacts = this.getFilteredContacts();
+    const { filter } = this.state;
     return (
       <>
         <Container title='Phonebook'>
           <InputForm onSubmit={this.addContact} />
         </Container>
         <Container title='Contacts'>
-          <Filter value={this.state.filter} onChange={this.changeFilter} />
+          <Filter value={filter} onChange={this.changeFilter} />
           <Phonebook contacts={filteredContacts} onDelete={this.deleteContact} />
         </Container>
       </>
