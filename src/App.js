@@ -54,10 +54,6 @@ class App extends Component {
     );
   };
 
-  submitHandler = (event) => {
-    event.preventDefault();
-  }
-
   render() {
     const filteredContacts = this.getFilteredContacts();
     const { filter } = this.state;
