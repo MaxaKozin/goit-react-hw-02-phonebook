@@ -5,10 +5,10 @@ import s from './Phonebook.module.scss';
 
 const PhonebookItem = ({ name, number, id, onDelete }) => {
   return (
-    <li className={s.item}>
+    <>
       <span>{name} : {number}</span>
       <button type="button" className={s.close} onClick={() => onDelete(id)}>+</button>
-    </li>
+    </>
   );
 }
 

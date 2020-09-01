@@ -11,7 +11,9 @@ const Phonebook = ({ contacts, onDelete }) => {
       {contacts &&
         <ul className={s.list}>
           {contacts.map(contact =>
-            <PhonebookItem {...contact} key={contact.id} onDelete={onDelete} />
+            <li className={s.item} key={contact.id}>
+              <PhonebookItem {...contact} onDelete={onDelete} />
+            </li>
           )}
         </ul>
       }
@@ -24,7 +26,7 @@ Phonebook.defaultProps = {
 }
 
 Phonebook.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object.isRequired),
+  contacts: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired })),
   onDelete: PropTypes.func.isRequired
 }
 
