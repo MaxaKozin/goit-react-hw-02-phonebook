@@ -20,18 +20,21 @@ class App extends Component {
       name,
       number
     };
-    this.setState(({ contacts }) => {
-      const sameContact = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase());
-      if (sameContact) {
-        alert(`${name} is already exists!`);
-        return;
+    const { contacts } = this.state;
+
+    const sameContact = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase());
+
+    if (sameContact) {
+      alert(`${name} is already exists!`);
+      return;
+    }
+
+    this.setState(({ contacts }) => (
+      {
+        contacts: [contact, ...contacts]
       }
-      return (
-        {
-          contacts: [contact, ...contacts]
-        }
-      )
-    })
+    )
+    )
   }
 
   deleteContact = contactId => {
