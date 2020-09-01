@@ -21,7 +21,7 @@ class App extends Component {
       number
     };
     this.setState(({ contacts }) => {
-      const sameContact = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
+      const sameContact = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase());
       if (sameContact) {
         alert(`${name} is already exists!`);
         return;
