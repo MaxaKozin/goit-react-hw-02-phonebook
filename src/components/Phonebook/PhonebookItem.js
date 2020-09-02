@@ -6,17 +6,21 @@ import s from './Phonebook.module.scss';
 const PhonebookItem = ({ name, number, id, onDelete }) => {
   return (
     <>
-      <span>{name} : {number}</span>
-      <button type="button" className={s.close} onClick={() => onDelete(id)}>+</button>
+      <span>
+        {name} : {number}
+      </span>
+      <button type="button" className={s.close} onClick={() => onDelete(id)}>
+        +
+      </button>
     </>
   );
-}
+};
 
 PhonebookItem.propTypes = {
   name: PropTypes.string,
   number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired
-}
+  onDelete: PropTypes.func.isRequired,
+};
 
 export default PhonebookItem;

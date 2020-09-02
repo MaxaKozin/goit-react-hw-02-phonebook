@@ -8,26 +8,28 @@ import s from './Phonebook.module.scss';
 const Phonebook = ({ contacts, onDelete }) => {
   return (
     <>
-      {contacts &&
+      {contacts && (
         <ul className={s.list}>
-          {contacts.map(contact =>
+          {contacts.map(contact => (
             <li className={s.item} key={contact.id}>
               <PhonebookItem {...contact} onDelete={onDelete} />
             </li>
-          )}
+          ))}
         </ul>
-      }
+      )}
     </>
-  )
-}
+  );
+};
 
 Phonebook.defaultProps = {
-  contacts: []
-}
+  contacts: [],
+};
 
 Phonebook.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired })),
-  onDelete: PropTypes.func.isRequired
-}
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({ id: PropTypes.string.isRequired }),
+  ),
+  onDelete: PropTypes.func.isRequired,
+};
 
 export default Phonebook;

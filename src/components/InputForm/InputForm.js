@@ -5,18 +5,18 @@ import s from './InputForm.module.scss';
 
 class InputForm extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
-  }
+    onSubmit: PropTypes.func.isRequired,
+  };
 
   state = {
     name: '',
-    number: ''
-  }
+    number: '',
+  };
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
-  }
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -25,8 +25,8 @@ class InputForm extends Component {
   };
 
   reset = () => {
-    this.setState({ name: '', number: '' })
-  }
+    this.setState({ name: '', number: '' });
+  };
 
   render() {
     const { name, number } = this.state;
@@ -34,7 +34,7 @@ class InputForm extends Component {
       <form className={s.form} onSubmit={this.handleSubmit}>
         <label className={s.label} htmlFor="name">
           Name
-          </label>
+        </label>
         <input
           id="name"
           type="text"
@@ -42,21 +42,24 @@ class InputForm extends Component {
           className={s.input}
           name="name"
           value={name}
-          placeholder='Name'
+          placeholder="Name"
         />
 
         <label className={s.label} htmlFor="number">
           Number
-          </label>
+        </label>
         <input
           id="number"
           type="text"
           onChange={this.handleChange}
           className={s.input}
-          name="number" value={number}
-          placeholder='Phone number'
+          name="number"
+          value={number}
+          placeholder="Phone number"
         />
-        <button type="submit" className={s.btn}>Add contact</button>
+        <button type="submit" className={s.btn}>
+          Add contact
+        </button>
       </form>
     );
   }

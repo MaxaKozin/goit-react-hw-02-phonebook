@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import shortid from 'shortid';
 
 import InputForm from './components/InputForm/InputForm';
-import Filter from "./components/Filter/Filter";
+import Filter from './components/Filter/Filter';
 import Phonebook from './components/Phonebook/Phonebook';
 import Container from './components/Container/Container';
 
@@ -11,31 +11,30 @@ class App extends Component {
     contacts: [],
     name: '',
     number: '',
-    filter: ''
-  }
+    filter: '',
+  };
 
   addContact = ({ name, number }) => {
     const contact = {
       id: shortid.generate(),
       name,
-      number
+      number,
     };
     const { contacts } = this.state;
 
-    const sameContact = contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase());
+    const sameContact = contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase(),
+    );
 
     if (sameContact) {
       alert(`${name} is already exists!`);
       return;
     }
 
-    this.setState(({ contacts }) => (
-      {
-        contacts: [contact, ...contacts]
-      }
-    )
-    )
-  }
+    this.setState(({ contacts }) => ({
+      contacts: [contact, ...contacts],
+    }));
+  };
 
   deleteContact = contactId => {
     this.setState(({ contacts }) => ({
@@ -62,15 +61,18 @@ class App extends Component {
     const { filter } = this.state;
     return (
       <>
-        <Container title='Phonebook'>
+        <Container title="Phonebook">
           <InputForm onSubmit={this.addContact} />
         </Container>
-        <Container title='Contacts'>
+        <Container title="Contacts">
           <Filter value={filter} onChange={this.changeFilter} />
-          <Phonebook contacts={filteredContacts} onDelete={this.deleteContact} />
+          <Phonebook
+            contacts={filteredContacts}
+            onDelete={this.deleteContact}
+          />
         </Container>
       </>
-    )
+    );
   }
 }
 

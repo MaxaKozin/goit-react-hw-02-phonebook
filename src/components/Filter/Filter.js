@@ -7,18 +7,23 @@ const Filter = ({ value, onChange }) => (
   <div className={s.wrapper}>
     <label className={s.label}>
       Find by Name
-    <input className={s.input} type="text" value={value} onChange={onChange} />
+      <input
+        className={s.input}
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
     </label>
   </div>
 );
 
 Filter.defaultProps = {
-  value: ''
-}
+  value: '',
+};
 
 Filter.propTypes = {
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired
-}
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Filter;
